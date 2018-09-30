@@ -1,105 +1,206 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>M-Tracker</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" shrink-to-fit=no">
-<link href="assets/css/main.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="assets/css/normalize.css" rel="stylesheet" />
-</head>
-<body>
-    <nav role="navigation" class="navContainer">
-        <ul class="nav navItem navStart">
-            <li><a href="index.html">M-Tracker</a></li>
-        </ul>
-        <ul class="nav navContainer navEnd">
-            <li><a href="signin.html">Sign in</a></li>
-            <li><a href="signup.html">Sign up</a></li>
-        </ul>
-    </nav>
-    <div class="welcome-div">
-    <h1 class="text-center" id= "home-logo">M-Tracker</h1>
-    <h3 class="text-center">Make your repair request fast </h3>
-  </div><br />
-  <p class="text-center" id="how-it-works">~ How it works ~</p>
-  <div class="lightly-darker-container">
-<div class="cards">
-  <div class="card">
-    <div class="mini-card-text"><i class="fa fa-eye"></i></div>
-      <div class="card-content">
-      <h3><a href="detail.html">You see<br />a fault</a></h3>
-        </div>
-    </div>
-    <div class="card">
-        <div class="mini-card-text"><i class="fa fa-envelope"></i></div>
-        <div class="card-content">
-        <h3><a href="detail.html">You make<br />a request</a></h3>
-          </div>
-      </div>
+<html lang="en">
 
-      <div class="card">
-        <div class="mini-card-text"><i class="fa fa-envelope-open"></i></div>
-          <div class="card-content">
-          <h3><a href="detail.html">We see<br />the request</a></h3>
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="M-Tracker">
+    <meta name="keywords" content="HTML,CSS,JavaScript,jquery">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" shrink-to-fit="no">
+
+    <title>M-Tracker</title>
+
+    <!-- Bootstrap CSS,Animate CSS : Stylesheets -->
+    <link href="assets/css/animate_home.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/home.css" rel="stylesheet" />
+    <!-- Custom CSS:Own Styles -->
+
+    <!-- Google Font and font-awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,700" rel="stylesheet">
+
+</head>
+
+<!-- Body section Start-->
+
+<body>
+
+    <!-- Header section Start -->
+    <header id="js-header">
+        <!-- Navbar section Start -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <!-- conainer Start-->
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="fa fa-align-left" style="font-size: 16px;"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/image/m-trackerlogo.jpg" alt="logo">
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="active" href="index.html">home</a>
+                        </li>
+                        <li class="hidden-xs">/</li>
+                        <li>
+                            <a href="signin.html">Sign in</a>
+                        </li>
+                        <li class="hidden-xs">/</li>
+                        <li>
+                            <a href="signup.html">Sign up</a>
+                        </li>
+                        <li class="hidden-xs">/</li>
+                        <li>
+                            <a href="api-docs">Api Documentation</a>
+                        </li>
+                        <li class="hidden-xs">/</li>
+                        <li>
+                            <a href="#">contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- conainer Ended-->
+        </nav>
+        <!-- Navbar section Ended -->
+    </header>
+    <!-- Header section Ended -->
+
+    <!-- Jumbotron Section Start -->
+    <div class="jumbotron text-left">
+        <!-- conainer Start -->
+        <div class="container">
+            <div class="banner-contant" data-aos="zoom-in-right" data-aos-duration="1000">
+                <h1>M-Tracker,</h1>
+                <h3>
+                    We handle all your
+                    <br/> Electrical,
+                    <br/> Electronics and,</br>
+                    Physical Repairs
+                    <br/>
+                    <a class=" btn btn-primary" href="signin.html">Get Started</a>
             </div>
         </div>
-        <div class="card">
-            <div class="mini-card-text"><i class="fa fa-gavel"></i></div>
-            <div class="card-content">
-            <h3><a href="detail.html">We act<br />on it</a></h3>
-              </div>
-          </div>
-  </div>
-</div>
-  <div class="lightly-dark-container">
-  <p class="text-center" id="status-header">~ Monitor Your Request ~</p>
-  <div class="status-div">
-        <p class="text-center underline">Your request can either be</p>
-  <ul class="status">
-        <li>Pending&nbsp;&nbsp;<i class="fa fa-pause"></i></li>
-        <li>Approved&nbsp;&nbsp;<i class="fa fa-thumbs-up"></i></li>
-    </ul>
-    <ul class="status">
-        <li>Disapproved&nbsp;&nbsp;<i class="fa fa-thumbs-down"></i></li>
-        <li>Resolved&nbsp;&nbsp;<i class="fa fa-check"></i></li>
-    </ul>
-</div> 
-  </div>
-<div class="lightly-darker-container">
-<p class="text-center styled-text" >....We handle repair or maintenance request the finest and fastest way</p>
-<div id="get-started"><a href="signup.html">GET STARTED</a></div>
-</div>
-<footer id="fix-footer">
-    <div class="social">
-      <a id="documentation" href="api-docs">Documentation</a>
-      <ul>
-        <li id="social-label">
-          <p>Find us:</p>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fa fa-facebook-square"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fa fa-twitter-square"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fa fa-linkedin-square"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fa fa-instagram"></i>
-          </a>
-        </li>
-      </ul>
+        <!-- conainer Ended -->
     </div>
-    <p class="text-center">&copy; M-tracker.com </p>
-  </footer>
-<script src="index.js"></script>
+    <!-- Jumbotron Section Ended -->
+
+    <section class="main-contant">
+        <!-- conainer Start -->
+        <div class="container">
+            <!-- Row-1 Start -->
+            <div class="row services">
+                <div class="col-sm-6 col-md-3">
+                    <div class="s1">
+                        <img src="assets/images/icon.png" class="img-responsive" style="width:23px;height: 12px" alt="Image">
+                        <h3>Step1</h3>
+                        <p>You have a fault</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="s1">
+                        <img src="assets/images/icon.png" class="img-responsive" style="width:23px;height: 12px" alt="Image">
+                        <h3>Step2</h3>
+                        <p>You send a request
+                            <a href="signup.html">Signup</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="s1">
+                        <img src="assets/images/icon.png" class="img-responsive" style="width:23px;height: 12px" alt="Image">
+                        <h3>Step3</h3>
+                        <p>We receive the request</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3">
+                    <div class="s1">
+                        <img src="assets/images/icon.png" class="img-responsive" style="width:23px;height: 12px" alt="Image">
+                        <h3>Step4</h3>
+                        <p>We handle your request</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- conainer Ended -->
+    </section>
+
+
+
+    <!-- END MAIN -->
+
+    <!-- Footer Section Start -->
+    <footer class="container-fluid bg-4 text-center">
+        <div class="row">
+            <ul>
+                <li>
+                    <a href="index.html">home</a>
+                </li>
+                <li class="semicolon">|</li>
+                <li>
+                    <a href="signin.html">Sign in</a>
+                </li>
+                <li class="semicolon">|</li>
+                <li>
+                    <a href="signup.html">Sign up</a>
+                </li>
+                <li class="semicolon">|</li>
+                <li>
+                    <a href="#">contact</a>
+                </li>
+
+            </ul>
+            <p>(C) 2018, All Rights Reserved
+                <span>
+                    <a href="#" target="_blank">&copy; M-tracker.com </a>
+            </p>
+        </div>
+    </footer>
+    <!-- Footer Section Ended -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Javascript plugins -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/animate.js"></script>
+    <script src="index.js"></script>
+
+    <script>
+
+        // Animate onscroll
+        $(document).ready(function () {
+            if (screen.width > 1024) {
+                AOS.init({
+                    easing: 'ease-in-out-sine',
+                });
+            }
+        });
+
+        // OnScroll
+        function resizeHeaderOnScroll() {
+            const distanceY = window.pageYOffset || document.documentElement.scrollTop,
+                shrinkOn = 00,
+                headerEl = document.getElementById('js-header');
+
+            if (distanceY > shrinkOn) {
+                headerEl.classList.add("smaller");
+            } else {
+                headerEl.classList.remove("smaller");
+            }
+        }
+
+        window.addEventListener('scroll', resizeHeaderOnScroll);
+    </script>
+
 </body>
+
 </html>
