@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>M-Tracker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" shrink-to-fit=no">
+<link href="assets/css/main.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="assets/css/normalize.css" rel="stylesheet" />
+</head>
+<body>
+    <nav role="navigation" class="navContainer">
+        <ul class="nav navItem navStart">
+            <li><a href="index.html">M-Tracker</a></li>
+        </ul>
+        <ul class="nav navContainer navEnd">
+            <li><a href="addrequest.html">Add New</a></li>
+            <li><a href="list.html">View</a></li>
+            <li><a href="index.html">Sign Out</a></li>
+        </ul>
+    </nav>
+    <p id="userWelcomeText"><i class="fa fa-user-circle"></i>&nbsp;Logged in as</p>
+    <div id="detail-card" class="show-detail-card">
+      <div class="display-card">
+        <img src="assets/image/repair2.png">
+        <div class="card-content">
+        <h3 id="title-label"></h3>
+          </div>
+      </div>
+      </div>
+      <div class="addrequest-form">
+        <p class="description-label">Description:</p> <p id="description-label" class="description-p">No description found</p>
+        <p class="description-label">Category:</p> <p id="category-label" class="description-p">General</p>
+        <p class="description-label">Date:</p><p id="date-label" class="description-p">No date found</p>
+      </div>
+        <p id = "messageText" ></p>
+        <div class="description-btn">
+        <select>
+            <option value="approve">Approve</option>
+            <option value="disapprove">Disapprove</option>
+            <option value="resolve">Resolve</option>
+        </select>
+        <button id="edit-btn" >Edit</button>
+        <button id="delete-btn" >Delete</button>
+      </div>
+      <script src="detail.js" ></script>
+      <footer id="fix-footer">
+    <div class="social">
+      <a id="documentation" href="api-docs">Documentation</a>
+      <ul>
+        <li id="social-label">
+          <p>Find us:</p>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-facebook-square"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-twitter-square"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-linkedin-square"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-instagram"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <p class="text-center">&copy; M-tracker.com </p>
+  </footer>
+  </body>
+  </html>

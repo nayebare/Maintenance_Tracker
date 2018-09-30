@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>M-Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="assets/css/main.css" rel="stylesheet" />
+<link href="assets/css/normalize.css" rel="stylesheet" />
+</head>
+<body>
+    <nav role="navigation" class="navContainer">
+      <ul class="nav navItem navStart">
+        <li>
+          <a href="index.html">M-Tracker</a>
+        </li>
+      </ul>
+      <ul class="nav navContainer navEnd">
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+        <li>
+          <a href="addrequest.html">Add New</a>
+        </li>
+        <li>
+          <a href="index.html">Sign Out</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="wrapper" >
+    <p id="userWelcomeText"><i class="fa fa-user-circle"></i>&nbsp;Logged in as</p>
+    <p class="text-center" id="request-header">All Requests</p>
+    <div id="filter-by">
+      <ul class="status-item status-start">
+        <li>
+          <form id="filter-date">
+            <button>From:</button>
+            <input type="date" name="dated" min="2017-01-01" max="2099-12-31">
+            <br>
+          </form>
+        </li>
+      </ul>
+      <ul class="status-container status-end">
+        <li>
+          <button>Filter by:</button>
+        </li>
+        <li>
+          <form>
+            <select name="status-dropdown">
+              <option value="">All</option>
+              <option value="approved">approved</option>
+              <option value="disapproved">disapproved</option>
+              <option value="resolved">resolved</option>
+              <option value="pending">pending</option>
+              <option value="" selected>status</option>
+            </select>
+          </form>
+        </li>
+        <li>
+          <form>
+            <select name="category-dropdown">
+              <option value="">All</option>
+              <option value="general">general</option>
+              <option value="electrical">electrical</option>
+              <option value="physical">physical</option>
+              <option value="mechanical">mechanical</option>
+              <option value="electronic">electronic</option>
+              <option value="software">software</option>
+              <option value="" selected>category</option>
+            </select>
+          </form>
+        </li>
+      </ul>
+    </div>
+      <p class = "text-center" id="filter-message"></p>
+      <div class = "loader"></div>
+    <table>
+    </table>
+    <p class="text-center" id="page-num"></p>
+    <div class="pagination">
+      <button disabled><i class="fa fa-arrow-circle-left"></i> Prev</button>
+      <button>Next <i class="fa fa-arrow-circle-right"></i> </button>
+    </div>
+    </div>
+  <script src="list.js"></script>
+  <footer id="fix-footer">
+    <div class="social">
+      <a id="documentation" href="api-docs">Documentation</a>
+      <ul>
+        <li id="social-label">
+          <p>Find us:</p>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-facebook-square"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-twitter-square"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-linkedin-square"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-instagram"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <p class="text-center">&copy; M-tracker.com </p>
+  </footer>
+</body>
+  </html>
