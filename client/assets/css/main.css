@@ -33,9 +33,18 @@
 .welcome-div {
   height: 500px;
   max-height: 400px;
-  background-image: url("../image/repair_image.jpg");
+  background-image: url("../image/repair1.jpg");
   padding-top: 10%;
 }
+
+.electronic-page-div {
+  height: 500px;
+  max-height: 400px;
+  background-image: url("../image/repair_image.jpg");
+  padding-top: 10%;
+  background-repeat: no-repeat;
+}
+
 .nav {
   list-style: none;
   height: auto;
