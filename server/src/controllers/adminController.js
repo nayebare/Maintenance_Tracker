@@ -1,6 +1,7 @@
 import { Pool } from 'pg';
 import requestController from './requestController';
 import { connectionString } from '../config/config';
+import userController from '../controllers/userController';
 
 const clientPool = new Pool(connectionString);
 /**
@@ -21,7 +22,7 @@ export default class adminController {
     }
     if (req.query.page) {
       req.query.offset = (req.query.page - 1) * req.query.limit;
-      queryObject = { text: 'SELECT * FROM Requests OFFSET $1 LIMIT $2', values: [ req.query.offset, req.query.limit] }
+      queryObject = { text: 'SELECT * FROM Requests OFFSET $1 LIMIT $2', values: [req.query.offset, req.query.limit] }
     }
     clientPool.connect()
       .then((client) => {
@@ -46,9 +47,10 @@ export default class adminController {
   static modifyStatus(req, res) {
     clientPool.connect()
       .then((client) => {
-        return client.query({ text: 'SELECT * FROM requests WHERE id=$1', values: [parseInt(req.params.requestId, 10)] })
+        return client.query({ text: 'SELECT * FROM requests,users WHERE requests.userid = users.id AND requests.id=$1', values: [parseInt(req.params.requestId, 10)] })
           .then((request) => {
             if (!request.rows[0]) return res.status(404).json({ message: 'Request not found' });
+            userController.sendNotification(request.rows[0].email,request.rows[0].title, request.rows[0].status);
             client.release();
             clientPool.connect()
               .then((client2) => {
@@ -103,4 +105,7 @@ export default class adminController {
           });
       });
   }
-}
+
+
+ 
+}//end class

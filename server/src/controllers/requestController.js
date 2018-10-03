@@ -146,13 +146,15 @@ export default class requestController {
                   values: [req.body.title, req.body.description, req.body.category, req.body.image,
                     'pending', dateToday.toLocaleDateString(), req.decoded.id]
                   })
+                
                     .then((results) => {
                       client.release();
                       res.status(201).json({ message: 'Request Added Successfully', data: results.rows[0] });
                     })
                     .catch((error) => {
                       client.release();
-                      res.status(500).json(error.stack);
+                     // res.status(500).json(error.stack);
+                     console.log(error);
                     });
                 });
             } else return res.status(200).json({ message: 'Request already exists' });

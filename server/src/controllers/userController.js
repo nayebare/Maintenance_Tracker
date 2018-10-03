@@ -9,12 +9,12 @@ const clientPool = new Pool(connectionString);
  * Class representing the controller for the application.
  */
 export default class userController {
-/**
-   * This creates a new account for a user
-   * @param {Object} req - client request Object
-   * @param {Object} res - Server response Object
-   * @returns {Object} Success or failure message
-   */
+  /**
+     * This creates a new account for a user
+     * @param {Object} req - client request Object
+     * @param {Object} res - Server response Object
+     * @returns {Object} Success or failure message
+     */
   static signUp(req, res) {
     const hashedPassword = bcrypt.hashSync(req.body.password, 8);
     clientPool.connect()
@@ -27,9 +27,10 @@ export default class userController {
             }
             clientPool.connect()
               .then((client2) => {
-                return client2.query({ text:
-          'INSERT INTO users (firstname, lastname,email,password, role) VALUES ($1, $2, $3, $4, $5) RETURNING id, email, firstname, lastname, role',
-                values: [req.body.firstName, req.body.lastName, req.body.email, hashedPassword, 'user']
+                return client2.query({
+                  text:
+                    'INSERT INTO users (firstname, lastname,email,password, role) VALUES ($1, $2, $3, $4, $5) RETURNING id, email, firstname, lastname, role',
+                  values: [req.body.firstName, req.body.lastName, req.body.email, hashedPassword, 'admin']
                 })
                   .then((result) => {
                     client2.release();
@@ -74,15 +75,17 @@ export default class userController {
                   id, email, role
                 } = result.rows[0];
                 const token = jwt.sign({ id, email, role }, process.env.secret_key, { expiresIn: '24h' });
+
                 if (process.env.NODE_ENV === 'test') process.env.token = token;
                 delete result.rows[0].password;
                 return res.status(200).json({ message: 'Login successful', data: result.rows[0], token });
               })
-              .catch(error => res.status(500).json(error));
+              .catch(error => res.status(900).json({ message: 'login error' }));
+
           })
           .catch((error) => {
             client.release();
-            res.status(500).json(error.stack);
+            res.status(500).json({ message: 'login error' });
           });
       });
   }
@@ -101,7 +104,7 @@ export default class userController {
     };
 
     const transport = mailer.createTransport({
-      host: 'smtp.gmail.com', 
+      host: 'smtp.gmail.com',
       secure: true,
       port: 465,
       auth: {
@@ -119,7 +122,8 @@ export default class userController {
       }
       res.status(200).json({ message: 'Email sent successfully' });
     });
-  };
+  }
+
   /**
    * This resets user's password.
    * @param {Object} req - client request Object
@@ -130,9 +134,10 @@ export default class userController {
     const hashedPassword = bcrypt.hashSync(req.body.password, 8);
     clientPool.connect()
       .then((client) => {
-        return client.query({ text:
-          'UPDATE users SET password=$1 WHERE id=$2 AND firstname =$3  RETURNING *',
-        values: [hashedPassword, req.decoded.id, req.decoded.firstname]
+        return client.query({
+          text:
+            'UPDATE users SET password=$1 WHERE id=$2 AND firstname =$3  RETURNING *',
+          values: [hashedPassword, req.decoded.id, req.decoded.firstname]
         })
           .then((result) => {
             client.release();
@@ -145,4 +150,37 @@ export default class userController {
           });
       });
   }
+
+  /**
+   * This method makes sends an email notification after a request has been approved/rejected
+ */
+  static sendNotification(email, requestTitle, requestStatus) {
+    const mailOptions = {
+      from: 'sinmi.mtracker@gmail.com',
+      to: email,
+      subject: 'M-TRACKER Request Status Changed',
+      html: `<p>Your Request ${requestTitle} Status has been ${requestStatus}</p>`
+    };
+
+    const transport = mailer.createTransport({
+      host: 'smtp.gmail.com',
+      secure: true,
+      port: 465,
+      auth: {
+        user: process.env.emailAdd,
+        pass: process.env.emailPassword,
+      },
+      transportMethod: 'SMTP',
+      tls: {
+        rejectUnauthorized: false
+      }
+    });
+    transport.sendMail(mailOptions, (error) => {
+      if (error) {
+        return 'Email failed to send';
+      }
+      return 'Email sent successfully';
+    });
+  }
+
 }
