@@ -30,7 +30,7 @@ export default class userController {
                 return client2.query({
                   text:
                     'INSERT INTO users (firstname, lastname,email,password, role) VALUES ($1, $2, $3, $4, $5) RETURNING id, email, firstname, lastname, role',
-                  values: [req.body.firstName, req.body.lastName, req.body.email, hashedPassword, 'admin']
+                  values: [req.body.firstName, req.body.lastName, req.body.email, hashedPassword, 'user']
                 })
                   .then((result) => {
                     client2.release();
@@ -80,7 +80,7 @@ export default class userController {
                 delete result.rows[0].password;
                 return res.status(200).json({ message: 'Login successful', data: result.rows[0], token });
               })
-              .catch(error => res.status(900).json({ message: 'login error' }));
+              .catch(error => res.status(500).json({ message: 'login error' }));
 
           })
           .catch((error) => {
