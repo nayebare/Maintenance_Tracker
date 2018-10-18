@@ -19,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', express.static('client'));
 
+
 app.all('/api/v1/', (req, res) => res.status(200).send({
   message: 'Welcome to M-Tracker.com, we handle repair or maintenance request the finest and fastest way',
 }));
