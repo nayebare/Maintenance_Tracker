@@ -4,6 +4,7 @@ const setStatus = (status) => {
   else if (status === 'resolved') return 'fa fa-check';
   else if (status === 'pending') return 'fa fa-pause';
 };
+
 const navLinks = document.querySelectorAll('ul a');
 const table = document.querySelector('table');
 const userWelcomeText = document.querySelector('#userWelcomeText');
@@ -73,6 +74,7 @@ nextButton.addEventListener('click', () => {
   if (isAdmin) fetchFilteredRequest(`${baseUrl}/api/v1/requests?page=${pageCounter}&limit=${limit}`);
   else fetchFilteredRequest(`${baseUrl}/api/v1/users/requests?page=${pageCounter}&limit=${limit}`);
 });
+
 prevButton.addEventListener('click', () => {
   nextButton.disabled = false;
   nextButton.style.backgroundColor = '#15437F';
@@ -85,6 +87,7 @@ prevButton.addEventListener('click', () => {
   if (isAdmin) fetchFilteredRequest(`${baseUrl}/api/v1/requests?page=${pageCounter}&limit=${limit}`);
   else fetchFilteredRequest(`${baseUrl}/api/v1/users/requests?page=${pageCounter}&limit=${limit}`);
 });
+
 dateButton.addEventListener('click', (event) => {
   table.innerHTML = '';
   filterMessage.textContent = '';

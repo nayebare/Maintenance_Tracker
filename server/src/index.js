@@ -30,10 +30,11 @@ app.use('/api/v1/', userRoute);
 app.use('/api/v1/', adminRoute);
 
 
-app.all('*', (req, res) => res.status(404).send({
-  message: 'You are not in the right place, pls input a valid endpoint',
-}));
+app.all('*', (req, res, err) => res.status(200).send({
 
+  message: 'You are not in the right place, please input a valid endpoint',
+
+}));
 
 
 app.set('port', port);
